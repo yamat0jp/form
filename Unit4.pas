@@ -228,33 +228,17 @@ var
   bmp2: TBitmap;
   rec: TRect;
   zs, stream: TStream;
+  th: TMyThread;
 begin
   bmp1 := TBitmap.Create;
   bmp2 := TBitmap.Create;
   try
     for var i := 0 to Form5.ListBox1.Count - 1 do
     begin
-      bmp1.LoadFromFile(Form5.ListBox1.Items[i]);
-      rec := Rect(0, 0, bmp1.Width, bmp1.Height);
-      bmp2.Width := rec.Width;
-      bmp2.Height := rec.Height;
-      if bmp2.Canvas.BeginScene then
-        try
-          bmp2.Canvas.DrawBitmap(bmp1, rec, rec, 1.0);
-        finally
-          bmp2.Canvas.EndScene;
-        end;
-      stream := TMemoryStream.Create;
-      zs := TZCompressionStream.Create(clMax, stream);
-      try
-        bmp2.SaveToStream(zs);
+        th:=TMyThread.Create(Form5.ListBox1.Items[i]);
         FDQuery2.Params[0].AsIntegers[i] := i + 1;
-        FDQuery2.Params[1].LoadFromStream(stream, ftBlob, i);
+        FDQuery2.Params[1].LoadFromStream(th.Stream, ftBlob, i);
         FDQuery2.Params[2].AsBooleans[i] := rec.Width < rec.Height;
-      finally
-        stream.Free;
-        zs.Free;
-      end;
       Form1.ProgressBar1.Value := i + 1;
       Application.ProcessMessages;
     end;

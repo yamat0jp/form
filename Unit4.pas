@@ -224,27 +224,48 @@ end;
 
 function TDataModule4.paraProc: Boolean;
 var
-  bmp1: TBitmap;
-  bmp2: TBitmap;
-  rec: TRect;
-  zs, stream: TStream;
-  th: TMyThread;
+  stream: TStream;
+  rec: TRectF;
 begin
-  bmp1 := TBitmap.Create;
-  bmp2 := TBitmap.Create;
-  try
-    for var i := 0 to Form5.ListBox1.Count - 1 do
-    begin
-        th:=TMyThread.Create(Form5.ListBox1.Items[i]);
-        FDQuery2.Params[0].AsIntegers[i] := i + 1;
-        FDQuery2.Params[1].LoadFromStream(th.Stream, ftBlob, i);
-        FDQuery2.Params[2].AsBooleans[i] := rec.Width < rec.Height;
-      Form1.ProgressBar1.Value := i + 1;
-      Application.ProcessMessages;
+  for var i := 0 to Form5.ListBox1.Count - 1 do
+  begin
+    stream := TMemoryStream.Create;
+    try
+      TTask.Run(
+        procedure
+        var
+          bmp1, bmp2: TBitmap;
+          zs: TStream;
+        begin
+          bmp1 := TBitmap.Create;
+          bmp2 := TBitmap.Create;
+          try
+            bmp1.LoadFromFile(Form5.ListBox1.Items[i]);
+            rec := RectF(0, 0, bmp1.Width, bmp1.Height);
+            bmp2.Width := bmp1.Width;
+            bmp2.Height := bmp1.Height;
+            bmp2.Canvas.BeginScene;
+            bmp2.Canvas.DrawBitmap(bmp1, rec, rec, 1.0);
+            bmp2.Canvas.EndScene;
+            zs := TZCompressionStream.Create(clMax, stream);
+            try
+              bmp2.SaveToStream(zs);
+            finally
+              zs.Free;
+            end;
+          finally
+            bmp1.Free;
+            bmp2.Free;
+          end;
+        end).Wait;
+      FDQuery2.Params[0].AsIntegers[i] := i + 1;
+      FDQuery2.Params[1].LoadFromStream(stream, ftBlob, i);
+      FDQuery2.Params[2].AsBooleans[i] := rec.Width < rec.Height;
+    finally
+      stream.Free;
     end;
-  finally
-    bmp1.Free;
-    bmp2.Free;
+    Form1.ProgressBar1.Value := i + 1;
+    Application.ProcessMessages;
   end;
   result := true;
 end;

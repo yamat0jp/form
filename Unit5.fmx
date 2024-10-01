@@ -1,0 +1,104 @@
+object Form5: TForm5
+  Left = 0
+  Top = 0
+  BorderStyle = ToolWindow
+  Caption = #30011#20687#12434#36984#12435#12391#12367#12384#12373#12356
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object Button1: TButton
+    Default = True
+    Enabled = False
+    ModalResult = 1
+    Position.X = 528.000000000000000000
+    Position.Y = 80.000000000000000000
+    TabOrder = 0
+    Text = 'OK'
+  end
+  object Button2: TButton
+    Cancel = True
+    ModalResult = 2
+    Position.X = 528.000000000000000000
+    Position.Y = 136.000000000000000000
+    TabOrder = 1
+    Text = 'Cancel'
+  end
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 2
+    Position.X = 376.000000000000000000
+    Position.Y = 192.000000000000000000
+    OnChangeTracking = Edit1ChangeTracking
+  end
+  object SpeedButton1: TSpeedButton
+    Position.X = 411.000000000000000000
+    Position.Y = 240.000000000000000000
+    Size.Width = 65.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Add'
+    OnClick = SpeedButton1Click
+  end
+  object OpenDialog1: TOpenDialog
+    Options = [ofReadOnly, ofHideReadOnly, ofAllowMultiSelect, ofPathMustExist, ofFileMustExist, ofEnableSizing]
+    Left = 376
+    Top = 288
+  end
+  object ListBox1: TListBox
+    Position.X = 56.000000000000000000
+    Position.Y = 64.000000000000000000
+    Size.Width = 273.000000000000000000
+    Size.Height = 385.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    OnDragOver = ListBox1DragOver
+    AllowDrag = True
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    OnChange = ListBox1Change
+    Viewport.Width = 269.000000000000000000
+    Viewport.Height = 381.000000000000000000
+    object Label2: TLabel
+      AutoSize = True
+      AutoTranslate = False
+      Position.X = -24.000000000000000000
+      Position.Y = -40.000000000000000000
+      Size.Width = 0.000000000000000000
+      Size.Height = 16.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+  end
+  object Label1: TLabel
+    Position.X = 376.000000000000000000
+    Position.Y = 160.000000000000000000
+    Text = #21517#31216#12364#37325#35079#12375#12390#12356#12414#12377
+    Visible = False
+    TabOrder = 6
+  end
+  object SpeedButton2: TSpeedButton
+    Position.X = 352.000000000000000000
+    Position.Y = 336.000000000000000000
+    Text = 'Up'
+    OnClick = SpeedButton2Click
+  end
+  object SpeedButton3: TSpeedButton
+    Position.X = 352.000000000000000000
+    Position.Y = 366.000000000000000000
+    Text = 'Down'
+    OnClick = SpeedButton2Click
+  end
+  object SpeedButton4: TSpeedButton
+    Position.X = 352.000000000000000000
+    Position.Y = 396.000000000000000000
+    Text = 'Delete'
+    OnClick = SpeedButton2Click
+  end
+end

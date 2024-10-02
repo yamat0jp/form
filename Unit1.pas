@@ -284,8 +284,6 @@ begin
 end;
 
 procedure TForm1.Action4Execute(Sender: TObject);
-var
-  int: Integer;
 begin
   tbname := PChar(Sender);
   Form3.Show;
@@ -296,9 +294,8 @@ begin
       begin
         CheckBox2.IsChecked := FieldByName('toppage').AsBoolean;
         SpeedButton2.IsPressed := FieldByName('double').AsBoolean;
-        int := FieldByName('page').AsInteger;
+        Action9Execute(Pointer(FieldByName('page').AsInteger));
       end;
-    Action9Execute(Pointer(int));
   finally
     Form3.Hide;
   end;

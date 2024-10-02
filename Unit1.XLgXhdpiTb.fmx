@@ -7,35 +7,35 @@ inherited Form1_XLgXhdpiTb: TForm1_XLgXhdpiTb
     Size.Height = 1255.000000000000000000
     Sizes = (
       800s
-      1206s
+      1240s
       800s
-      1206s
+      1240s
       800s
-      1206s)
+      1240s)
     inherited TabItem1: TTabItem
-      Size.Width = 266.000000000000000000
-      Size.Height = 49.000000000000000000
+      Size.Width = 60.000000000000000000
+      Size.Height = 15.000000000000000000
       ExplicitSize.cx = 66.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
       inherited ListBox1: TListBox
-        Size.Height = 1206.000000000000000000
+        Size.Height = 1240.000000000000000000
         Viewport.Width = 257.000000000000000000
         Viewport.Height = 1206.000000000000000000
       end
       inherited ScrollBox1: TScrollBox
         Size.Width = 543.000000000000000000
-        Size.Height = 1206.000000000000000000
+        Size.Height = 1240.000000000000000000
         Viewport.Width = 543.000000000000000000
         Viewport.Height = 1206.000000000000000000
       end
     end
     inherited TabItem2: TTabItem
-      Size.Width = 266.000000000000000000
-      Size.Height = 49.000000000000000000
+      Size.Width = 69.000000000000000000
+      Size.Height = 15.000000000000000000
       ExplicitSize.cx = 68.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
       inherited TrackBar1: TTrackBar
-        Position.Y = 1147.000000000000000000
+        Position.Y = 1181.000000000000000000
         Size.Width = 800.000000000000000000
       end
       inherited ToolBar1: TToolBar
@@ -43,23 +43,23 @@ inherited Form1_XLgXhdpiTb: TForm1_XLgXhdpiTb
       end
       inherited Image3: TImage
         Size.Width = 800.000000000000000000
-        Size.Height = 1107.000000000000000000
+        Size.Height = 1141.000000000000000000
       end
       inherited ToolBar2: TToolBar
-        Position.Y = 1166.000000000000000000
+        Position.Y = 1200.000000000000000000
         Size.Width = 800.000000000000000000
       end
     end
     inherited TabItem4: TTabItem
-      Size.Width = 268.000000000000000000
-      Size.Height = 49.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 15.000000000000000000
       ExplicitSize.cx = 79.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
       inherited Memo1: TMemo
         Position.X = 339.000000000000000000
-        Size.Height = 1206.000000000000000000
+        Size.Height = 1240.000000000000000000
         Viewport.Width = 461.000000000000000000
-        Viewport.Height = 1206.000000000000000000
+        Viewport.Height = 1240.000000000000000000
       end
       inherited Memo2: TMemo
         Viewport.Width = 297.000000000000000000

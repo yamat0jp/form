@@ -125,7 +125,7 @@ Visible=True
 Coordinates=155,326,49,51
 
 []
-Coordinates=276,231,84,51
+Coordinates=446,501,40,51
 ExplicitSubNodes=IsChecked
 Visible=True
 
@@ -205,4 +205,13 @@ Coordinates=95,403,68,33
 
 [Action11]
 Coordinates=86,163,57,33
+
+[StyleBook1]
+Coordinates=481,153,70,33
+
+[Action9]
+Coordinates=311,241,52,33
+
+[ProgressBar1]
+Coordinates=167,1,81,51
 

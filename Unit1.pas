@@ -284,18 +284,21 @@ begin
 end;
 
 procedure TForm1.Action4Execute(Sender: TObject);
+var
+  int: Integer;
 begin
   tbname := PChar(Sender);
   Form3.Show;
   try
     Application.ProcessMessages;
     with DataModule4.FDTable2 do
-      if Locate('id', DataModule4.selected(tbname)) then
+      if DataModule4.selected(tbname) then
       begin
         CheckBox2.IsChecked := FieldByName('toppage').AsBoolean;
         SpeedButton2.IsPressed := FieldByName('double').AsBoolean;
-        Action9Execute(Pointer(FieldByName('page').AsInteger));
+        int := FieldByName('page').AsInteger;
       end;
+    Action9Execute(Pointer(int));
   finally
     Form3.Hide;
   end;
@@ -312,7 +315,7 @@ begin
   else
     num := tmp;
   if RadioButton2.IsChecked then
-    num := DataModule4.FDTable1.RecordCount - num + 1;
+    num := DataModule4.FDTable1.RecordCount - tmp + 1;
   with DataModule4.FDTable2 do
     if Locate('name', tbname) then
     begin
@@ -362,9 +365,15 @@ var
   ch: Integer;
 begin
   if SpeedButton2.IsPressed then
-    ch := checkReverse(DataModule4.doublePage(Integer(Sender)))
+  begin
+    ch := checkReverse(DataModule4.doublePage(Integer(Sender)));
+    TrackBar1.Max := DataModule4.mapList.Count;
+  end
   else
+  begin
     ch := checkReverse(Integer(Sender));
+    TrackBar1.Max := DataModule4.FDTable1.RecordCount;
+  end;
   if ch = TrackBar1.Value then
     TrackBar1Change(nil)
   else

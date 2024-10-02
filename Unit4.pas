@@ -44,7 +44,7 @@ type
     mapList: TList<TMap>;
     pwd: string;
     procedure map(toppage: Boolean);
-    function selected(fname: string): integer;
+    function selected(fname: string): Boolean;
     function LoadAllFile: Boolean;
     function doublePage(index: integer): integer;
     function singlePage(index: integer; Left: Boolean = true): integer;
@@ -279,24 +279,23 @@ begin
   result := 'tb' + result;
 end;
 
-function TDataModule4.selected(fname: string): integer;
+function TDataModule4.selected(fname: string): Boolean;
 begin
   if FDTable2.Locate('name', fname) then
   begin
     FDTable1.Close;
     FDTable1.TableName := FDTable2.FieldByName('file').AsString;
     FDTable1.Open;
-    FDTable1.Prepare;
     map(FDTable2.FieldByName('toppage').AsBoolean);
-    result := FDTable2.FieldByName('id').AsInteger;
+    result := true
   end
   else
-    result := 0;
+    result := false;
 end;
 
 function TDataModule4.singlePage(index: integer; Left: Boolean): integer;
 begin
-  if Left then
+  if Left or (mapList[index - 1].Right = 0) then
     result := mapList[index - 1].Left
   else
     result := mapList[index - 1].Right;

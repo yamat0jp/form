@@ -770,6 +770,7 @@ object Form1: TForm1
         object SpeedButton2: TSpeedButton
           StaysPressed = True
           Align = Center
+          Hint = #36899#25171#31105#27490
           Text = #35211#38283#12365
           TextSettings.Trimming = None
           OnClick = SpeedButton2Click
@@ -832,7 +833,7 @@ object Form1: TForm1
           #12496#12540#12472#12519#12531
           'ver 1.5'
           ''
-          'Delphi 13 Professional'
+          'Delphi 13 Pro'
           'InterBase toGo'
           ''
           ''
@@ -910,7 +911,7 @@ object Form1: TForm1
           #20182#31038#35069#21697#12395#22823#22793#20284#12383#20316#12426#12395#12394#12387#12390#12375#12414#12387#12390
           #34920#12395#20986#12375#12389#12425#12367#12394#12426#12414#12375#12383#12290
           ''
-          'DELPHI 13 Professional '#12391#20316#25104#12373#12428#12390#12356#12414#12377
+          'DELPHI 13 Pro '#12391#20316#25104#12373#12428#12390#12356#12414#12377
           '')
         CanFocus = False
         Position.X = 128.000000000000000000
